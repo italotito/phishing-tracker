@@ -1,0 +1,16 @@
+# --- Motor Principal (Análise Heurística, DNS/WHOIS & Threat Intel) ---
+requests>=2.31.0
+python-dotenv>=1.0.1
+dnspython>=2.6.1
+python-whois>=0.9.4
+
+# --- Backend REST API (FastAPI + Swagger) ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+
+# --- Frontend / Dashboard Interativo (Streamlit) ---
+streamlit>=1.33.0
+
+# --- Testes Automatizados ---
+pytest>=8.0.0

@@ -1,0 +1,26 @@
+# Variáveis de ambiente e segredos (NUNCA comitar no GitHub)
+.env
+.env.local
+
+# Ambientes virtuais Python
+venv/
+.venv/
+env/
+
+# Cache e bytecodes do Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Banco de dados local e cache
+*.db
+*.sqlite3
+
+# Arquivos de sistema e IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
