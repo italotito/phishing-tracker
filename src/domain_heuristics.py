@@ -120,7 +120,12 @@ def detect_typosquatting(domain_label: str) -> tuple[bool, str]:
 
         for token in tokens:
             token_leet = token.translate(LEET_TRANSLATION).replace("rn", "m")
-            if token != brand and (token_leet == brand or (len(brand) >= 5 and levenshtein_distance(token, brand) == 1)):
+            token_leet_i = token.replace("1", "i").translate(LEET_TRANSLATION).replace("rn", "m")
+            if token != brand and (
+                token_leet == brand
+                or token_leet_i == brand
+                or (len(brand) >= 5 and levenshtein_distance(token, brand) == 1)
+            ):
                 return True, f"Token '{token}' imita a marca '{brand}' em '{domain_label}'"
 
     return False, ""

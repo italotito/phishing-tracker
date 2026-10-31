@@ -19,6 +19,9 @@ htmlcov/
 *.db
 *.sqlite3
 
+# Subprojeto com repositório próprio (fisher-tracker-extension)
+fisher-tracker-extension/
+
 # Arquivos de sistema e IDE
 .DS_Store
 Thumbs.db
