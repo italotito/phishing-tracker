@@ -4,16 +4,16 @@ Armazena o histórico de análises de URLs e e-mails e fornece estatísticas agr
 para a API (FastAPI) e para o Dashboard (Streamlit).
 """
 
+import json
+import sqlite3
 from contextlib import closing
 from datetime import datetime, timezone
-import json
 from pathlib import Path
-import sqlite3
 from typing import Any
 
 from src.models import AnalysisReport
 
-DEFAULT_DB_PATH = Path(__file__).resolve().parent.parent / "fishing_tracker.db"
+DEFAULT_DB_PATH = Path(__file__).resolve().parent.parent / "phishing_tracker.db"
 
 
 def get_connection(db_path: Path = DEFAULT_DB_PATH) -> sqlite3.Connection:

@@ -179,7 +179,7 @@ def analyze_email_headers_and_attachments(parsed_email: ParsedEmail) -> list[Ris
             )
         )
 
-    if re.search(r"dmarc=(fail| reject|quarantine)", auth_lower):
+    if re.search(r"dmarc=(fail|reject|quarantine)", auth_lower):
         indicators.append(
             RiskIndicator(
                 code="DMARC_FAIL",

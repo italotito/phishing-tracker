@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 def _load_env_file() -> None:
-    """Carrega variáveis do arquivo .env (usa python-dotenv se disponível ou parser nativo)."""
+    # Carrega variáveis do arquivo .env (usa python-dotenv se disponível ou parser nativo).
     env_path = Path(__file__).resolve().parent.parent / ".env"
     if not env_path.exists():
         return

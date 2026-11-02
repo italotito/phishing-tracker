@@ -1,5 +1,5 @@
 """
-Camada de Backend REST API construída com FastAPI.
+API REST construída com FastAPI (Phishing Tracker).
 Expõe endpoints assíncronos para triagem de URLs, análise de e-mails (.eml),
 consulta de histórico e métricas de risco com documentação Swagger automática (/docs).
 """
@@ -23,10 +23,7 @@ from src.database import (
 from src.risk_calculator import analyze_email_raw, analyze_single_url
 
 
-# ==============================================================================
-# Schemas Pydantic ( Validação de Entrada e Contrato OpenAPI / Swagger )
-# ==============================================================================
-
+# Schemas Pydantic para validação de entrada e contrato OpenAPI / Swagger
 
 class URLAnalyzeRequest(BaseModel):
     url: str = Field(
@@ -93,20 +90,16 @@ class StatsResponse(BaseModel):
     critical_count: int
 
 
-# ==============================================================================
-# Inicialização da Aplicação FastAPI
-# ==============================================================================
-
+# Inicialização do FastAPI
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
-    """Garante que o banco de dados SQLite esteja inicializado na subida do servidor."""
     init_db()
     yield
 
 
 app = FastAPI(
-    title="Fishing Tracker API",
+    title="Phishing Tracker API",
     description=(
         "API RESTful para detecção de phishing em URLs e arquivos de e-mail (.eml) "
         "combinando heurística de domínios, análise de linguagem e VirusTotal API v3."
@@ -124,20 +117,18 @@ app.add_middleware(
 )
 
 
-# ==============================================================================
 # Rotas da API
-# ==============================================================================
 
 
 @app.get("/health", tags=["Sistema"])
 async def health_check() -> dict[str, Any]:
-    """Verifica a disponibilidade da API e o status da integração VirusTotal."""
+    #Verifica a disponibilidade da API e o status da integração VirusTotal.
     vt_configured = bool(
         VIRUSTOTAL_API_KEY and VIRUSTOTAL_API_KEY != "sua_chave_do_virustotal_aqui"
     )
     return {
         "status": "ok",
-        "service": "fishing-tracker-api",
+        "service": "phishing-tracker-api",
         "version": __version__,
         "virustotal_configured": vt_configured,
     }
@@ -145,7 +136,7 @@ async def health_check() -> dict[str, Any]:
 
 @app.post("/api/v1/analyze/url", response_model=AnalysisResponse, tags=["Análise"])
 async def analyze_url_endpoint(payload: URLAnalyzeRequest) -> dict[str, Any]:
-    """Analisa uma URL em busca de indicadores de phishing e calcula o score de risco (0-100)."""
+    #Analisa uma URL em busca de indicadores de phishing e calcula o score de risco (0-100).
     clean_url = payload.url.strip()
     if not clean_url:
         raise HTTPException(status_code=400, detail="A URL informada não pode estar vazia.")
@@ -160,7 +151,7 @@ async def analyze_url_endpoint(payload: URLAnalyzeRequest) -> dict[str, Any]:
 
 @app.post("/api/v1/analyze/email/raw", response_model=AnalysisResponse, tags=["Análise"])
 async def analyze_raw_email_endpoint(payload: RawEmailAnalyzeRequest) -> dict[str, Any]:
-    """Analisa o conteúdo bruto de um e-mail (.eml) enviado via JSON."""
+    #Analisa o conteúdo bruto de um e-mail (.eml) enviado via JSON.
     if not payload.raw_eml.strip():
         raise HTTPException(status_code=400, detail="O conteúdo do e-mail não pode estar vazio.")
 
@@ -182,7 +173,7 @@ async def analyze_uploaded_email_endpoint(
     use_virustotal: bool = Query(default=True, description="Consultar reputação no VirusTotal."),
     save_history: bool = Query(default=True, description="Salvar análise no histórico SQLite."),
 ) -> dict[str, Any]:
-    """Recebe o upload de um arquivo `.eml`, extrai cabeçalhos/corpo/links e calcula o risco."""
+    #Recebe o upload de um arquivo `.eml`, extrai cabeçalhos/corpo/links e calcula o risco.
     raw_bytes = await file.read()
     if not raw_bytes:
         raise HTTPException(status_code=400, detail="O arquivo enviado está vazio.")
@@ -204,18 +195,18 @@ async def analyze_uploaded_email_endpoint(
 async def list_scan_history(
     limit: int = Query(default=50, ge=1, le=500, description="Quantidade máxima de registros.")
 ) -> list[dict[str, Any]]:
-    """Retorna o histórico recente de URLs e e-mails analisados."""
+    #Retorna o histórico recente de URLs e e-mails analisados.
     return get_recent_scans(limit=limit)
 
 
 @app.get("/api/v1/stats", response_model=StatsResponse, tags=["Histórico & Métricas"])
 async def get_dashboard_stats() -> dict[str, Any]:
-    """Retorna contadores consolidados e média de risco para exibição no painel."""
+    #Retorna contadores consolidados e média de risco para exibição no painel.
     return get_scan_stats()
 
 
 @app.delete("/api/v1/history", tags=["Histórico & Métricas"])
 async def delete_scan_history() -> dict[str, str]:
-    """Limpa todos os registros do histórico local SQLite."""
+    #Limpa todos os registros do histórico local SQLite.
     clear_scan_history()
     return {"status": "cleared", "message": "Histórico de análises removido com sucesso."}

@@ -207,13 +207,13 @@ def render_analysis_result(result: dict[str, Any]) -> None:
 
 def main() -> None:
     st.set_page_config(
-        page_title="Fishing Tracker | Detecção de Phishing",
+        page_title="Phishing Tracker | Detecção de Phishing",
         page_icon="🛡️",
         layout="wide",
     )
     init_db()
 
-    st.title("🛡️ Fishing Tracker — Painel de Detecção de Phishing")
+    st.title("🛡️ Phishing Tracker — Painel de Detecção de Phishing")
     st.caption(
         "Triagem heurística de URLs e arquivos de e-mail (`.eml`), análise de engenharia social e reputação VirusTotal."
     )
@@ -379,10 +379,10 @@ def main() -> None:
 
         if stats["total_scans"] > 0:
             dist_data = {
-                "1. Seguro (0-20)": stats["safe_count"],
-                "2. Suspeito (21-50)": stats["suspicious_count"],
-                "3. Alto Risco (51-75)": stats["high_risk_count"],
-                "4. Crítico (76-100)": stats["critical_count"],
+                "1. Seguro (0–20)": stats["safe_count"],
+                "2. Suspeito (21–50)": stats["suspicious_count"],
+                "3. Alto Risco (51–75)": stats["high_risk_count"],
+                "4. Crítico (76–100)": stats["critical_count"],
             }
             st.caption("Distribuição de Análises por Severidade")
             st.bar_chart(dist_data)
@@ -394,7 +394,7 @@ def main() -> None:
                     "Data/Hora": row["created_at"],
                     "Tipo": row["target_type"],
                     "Alvo": row["target_identifier"],
-                    "Score (0-100)": row["risk_score"],
+                    "Score (0–100)": row["risk_score"],
                     "Classificação": row["classification"],
                     "Qtd. Indicadores": row["indicators_count"],
                 }

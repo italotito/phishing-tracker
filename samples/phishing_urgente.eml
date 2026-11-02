@@ -1,24 +1,24 @@
 Return-Path: <bounce@alerta-cadastral-token.xyz>
 Received: from mail.alerta-cadastral-token.xyz (185.220.101.45) by mx.example.com with ESMTP; Sat, 31 Oct 2026 09:15:00 -0300
 Authentication-Results: mx.example.com; spf=fail smtp.mailfrom=itau.com.br; dkim=fail; dmarc=fail
-From: "Central de Seguranca Itau" <atendimento@itau.com.br>
+From: "Central de Segurança Itaú" <atendimento@itau.com.br>
 Reply-To: suporte-urgente@itau-recadastramento.xyz
 To: cliente@empresa.com.br
-Subject: [URGENTE] Sua conta sera suspensa em ate 24 horas - Acao Imediata
+Subject: [URGENTE] Sua conta será suspensa em até 24 horas - Ação Imediata
 MIME-Version: 1.0
 Content-Type: text/html; charset="utf-8"
 
 <html>
   <body>
     <p>Prezado(a) Cliente,</p>
-    <p>Identificamos uma <strong>tentativa de acesso nao autorizada</strong> em sua conta.</p>
-    <p>Por medidas de seguranca, realizamos um <strong>bloqueio preventivo</strong>. Para evitar que sua
-    <strong>conta seja suspensa</strong> permanentemente, voce deve realizar uma <strong>acao imediata</strong>
-    e <strong>atualize seu token</strong> em ate 24 horas.</p>
+    <p>Identificamos uma <strong>tentativa de acesso não autorizada</strong> em sua conta.</p>
+    <p>Por medidas de segurança, realizamos um <strong>bloqueio preventivo</strong>. Para evitar que sua
+    <strong>conta seja suspensa</strong> permanentemente, você deve realizar uma <strong>ação imediata</strong>
+    e <strong>atualize seu token</strong> em até 24 horas.</p>
     <p>Acesse o portal oficial clicando no link abaixo:</p>
     <p>
       <a href="http://itau.login-seguro-token.xyz/validar">https://www.itau.com.br/seguranca/token</a>
     </p>
-    <p>Atenciosamente,<br>Equipe de Prevencao a Fraudes</p>
+    <p>Atenciosamente,<br>Equipe de Prevenção a Fraudes</p>
   </body>
 </html>

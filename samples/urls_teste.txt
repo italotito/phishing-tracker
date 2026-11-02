@@ -1,4 +1,4 @@
-# Exemplos de URLs para validação do motor de análise (Fishing Tracker)
+# Exemplos de URLs para validação do motor de análise (Phishing Tracker)
 
 # 1. URLs Legítimas (Esperado: 0/100 - SEGURO)
 https://www.itau.com.br/seguranca

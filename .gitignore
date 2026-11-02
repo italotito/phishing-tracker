@@ -19,8 +19,9 @@ htmlcov/
 *.db
 *.sqlite3
 
-# Subprojeto com repositório próprio (fisher-tracker-extension)
+# Subprojeto da extensão de navegador
 fisher-tracker-extension/
+phishing-tracker-extension/
 
 # Arquivos de sistema e IDE
 .DS_Store

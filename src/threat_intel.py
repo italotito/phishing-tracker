@@ -27,7 +27,7 @@ def _vt_api_get(endpoint: str, api_key: str) -> dict[str, Any] | None:
     headers = {
         "x-apikey": api_key,
         "Accept": "application/json",
-        "User-Agent": "FishingTracker-SecurityEngine/1.0",
+        "User-Agent": "PhishingTracker-SecurityEngine/1.0",
     }
 
     try:

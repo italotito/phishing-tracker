@@ -3,9 +3,9 @@ Módulo 2: Heurística de Domínios, Typosquatting (Distância de Levenshtein),
 Homógrafos (Punycode), Subdomínios e Validação DNS/WHOIS.
 """
 
-from datetime import datetime, timezone
 import ipaddress
 import re
+from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 from src.config import (

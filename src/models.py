@@ -2,7 +2,7 @@
 Modelos de dados estruturados para o motor de análise de phishing.
 """
 
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
 

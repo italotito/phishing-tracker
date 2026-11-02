@@ -4,14 +4,14 @@ Authentication-Results: mx.example.com; spf=pass smtp.mailfrom=github.com; dkim=
 From: "GitHub" <noreply@github.com>
 Reply-To: noreply@github.com
 To: dev@empresa.com.br
-Subject: Resumo semanal de commits do repositorio fishing-tracker
+Subject: Resumo semanal de commits do repositório phishing-tracker
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 
-Ola,
+Olá,
 
-Aqui esta o resumo semanal de atividades do seu repositorio no GitHub.
-Nenhuma acao e necessaria. Para visualizar os relatorios de codigo, acesse:
+Aqui está o resumo semanal de atividades do seu repositório no GitHub.
+Nenhuma ação é necessária. Para visualizar os relatórios de código, acesse:
 https://github.com/settings/security-log
 
 Equipe GitHub

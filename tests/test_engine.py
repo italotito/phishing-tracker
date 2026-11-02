@@ -3,9 +3,9 @@ Suíte de Testes Unitários e de Integração para o Motor de Detecção de Phis
 Compatível tanto com `pytest` quanto com `python -m unittest`.
 """
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from src.database import (
     clear_scan_history,
@@ -23,7 +23,7 @@ from src.threat_intel import encode_vt_url_id, parse_vt_stats_to_indicators
 SAMPLES_DIR = Path(__file__).resolve().parent.parent / "samples"
 
 
-class TestFishingTrackerEngine(unittest.TestCase):
+class TestPhishingTrackerEngine(unittest.TestCase):
     """Valida os 5 módulos principais do motor de análise."""
 
     def test_levenshtein_distance(self) -> None:

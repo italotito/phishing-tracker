@@ -1,1 +1,1 @@
-"""Pacote de testes automatizados do Fishing Tracker."""
+"""Pacote de testes automatizados do Phishing Tracker."""
